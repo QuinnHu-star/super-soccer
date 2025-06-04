@@ -26,5 +26,16 @@ modulate = Color(0.941365, 0.941365, 0.941365, 1)
 texture = ExtResource("3_4wyf3")
 centered = false
 
-[node name="Player" parent="." instance=ExtResource("4_k0juu")]
+[node name="Characters" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Characters" instance=ExtResource("4_k0juu")]
 position = Vector2(143, 90)
+
+[node name="Player2" parent="Characters" instance=ExtResource("4_k0juu")]
+position = Vector2(223, 105)
+control_scheme = 1
+
+[node name="Player3" parent="Characters" instance=ExtResource("4_k0juu")]
+position = Vector2(153, 134)
+control_scheme = 2
