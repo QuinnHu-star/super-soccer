@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 enum ControlScheme {P1, P2, CPU}
+enum State {MOVING, TACKLING, RECOVERING}
 
 @export var control_scheme: ControlScheme
 @export var speed: float
@@ -11,19 +12,30 @@ enum ControlScheme {P1, P2, CPU}
 
 ## 角色的朝向
 var heading := Vector2.RIGHT
+## 角色当前状态
+var current_state: PlayerState = null
+## 玩家状态工厂
+var state_factory := PlayerStateFactory.new()
+
+
+func _ready() -> void:
+	switch_state(State.MOVING)
 
 
 func _process(_delta: float) -> void:
-	if control_scheme == ControlScheme.CPU:
-		#TODO AI 移动
-		pass
-	else:
-		handle_human_movement()
-	
-	set_movement_abnimation()
-	set_heading()
 	flip_sprites()
 	move_and_slide()
+
+
+func switch_state(state: State) -> void:
+	if current_state != null:
+		current_state.queue_free()
+	current_state = state_factory.get_fresh_state(state)
+	current_state.setup(self, animation_player)
+	current_state.state_transition_requested.connect(switch_state.bind())
+	current_state.name = "PlayerStateMachine: " + str(state)
+	call_deferred("add_child", current_state)
+
 
 ## 设置动动画
 func set_movement_abnimation() -> void:
@@ -32,10 +44,6 @@ func set_movement_abnimation() -> void:
 	else:
 		animation_player.play("idle")
 
-## 处理玩家的运动
-func handle_human_movement() -> void:
-	var direction := KeyUtils.get_input_vector(control_scheme)
-	velocity = direction * speed
 
 ## 设置角色朝向变量：heading
 func set_heading() -> void:
@@ -43,6 +51,7 @@ func set_heading() -> void:
 		heading = Vector2.RIGHT
 	elif velocity.x < 0:
 		heading = Vector2.LEFT
+
 
 ## 根据 heading 变量的值，更新角色精灵的朝向
 func flip_sprites() -> void:

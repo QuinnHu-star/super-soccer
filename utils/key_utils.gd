@@ -21,19 +21,19 @@ const ACTIONS_MAP: Dictionary = {
 	}
 }
 
-## 获取特定色的输入向量
+
 func get_input_vector(scheme: Player.ControlScheme) -> Vector2:
 	var map : Dictionary = ACTIONS_MAP[scheme]
 	return Input.get_vector(map[Action.LEFT], map[Action.RIGHT], map[Action.UP], map[Action.DOWN])
 
-## 判断动作是否按下
+
 func is_action_pressed(scheme: Player.ControlScheme, action: Action) -> bool:
 	return Input.is_action_pressed(ACTIONS_MAP[scheme][action])
 
-## 判断动作是否刚好按下
+
 func is_action_just_pressed(scheme: Player.ControlScheme, action: Action) -> bool:
 	return Input.is_action_just_pressed(ACTIONS_MAP[scheme][action])
 
-## 判断动作是否刚好释放
+
 func is_action_just_released(scheme: Player.ControlScheme, action: Action) -> bool:
 	return Input.is_action_just_released(ACTIONS_MAP[scheme][action])
