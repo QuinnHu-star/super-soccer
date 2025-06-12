@@ -14,7 +14,7 @@ config/name="super-soccer"
 config/tags=PackedStringArray("2d", "教程")
 run/main_scene="uid://bcxo2e4tnabc1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ccs41ptey85jy"
 
 [autoload]
 
