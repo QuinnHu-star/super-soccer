@@ -40,9 +40,9 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://assets/": "gray",
-"res://scenes/": "green",
-"res://utils/": "blue"
+"res://addons/": "gray",
+"res://scenes/": "yellow",
+"res://utils/": "green"
 }
 
 [input]
