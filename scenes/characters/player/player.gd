@@ -7,15 +7,15 @@ enum State {MOVING, TACKLING, RECOVERING}
 @export var control_scheme: ControlScheme
 @export var speed: float
 
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var player_sprite: Sprite2D = %PlayerSprite
-
 ## 角色的朝向
 var heading := Vector2.RIGHT
 ## 角色当前状态
 var current_state: PlayerState = null
 ## 玩家状态工厂
 var state_factory := PlayerStateFactory.new()
+
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var player_sprite: Sprite2D = %PlayerSprite
 
 
 func _ready() -> void:
@@ -32,17 +32,17 @@ func switch_state(state: State) -> void:
 		current_state.queue_free()
 	current_state = state_factory.get_fresh_state(state)
 	current_state.setup(self, animation_player)
-	current_state.state_transition_requested.connect(switch_state.bind())
-	current_state.name = "PlayerStateMachine: " + str(state)
+	current_state.state_changed.connect(switch_state.bind())
+	current_state.name = "PlayerStateMachine_" + str(state)
 	call_deferred("add_child", current_state)
 
 
 ## 设置动动画
 func set_movement_abnimation() -> void:
 	if velocity.length() > 0:
-		animation_player.play("run")
+		animation_player.play(Strname.RUN)
 	else:
-		animation_player.play("idle")
+		animation_player.play(Strname.IDLE)
 
 
 ## 设置角色朝向变量：heading

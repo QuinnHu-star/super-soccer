@@ -18,7 +18,8 @@ config/icon="uid://ccs41ptey85jy"
 
 [autoload]
 
-KeyUtils="*res://utils/key_utils.gd"
+KeyUtils="*res://game/autoload/key_utils.gd"
+Strname="*res://game/autoload/strname.gd"
 
 [debug]
 
@@ -41,8 +42,8 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
 folder_colors={
 "res://addons/": "gray",
-"res://scenes/": "yellow",
-"res://utils/": "green"
+"res://game/": "orange",
+"res://scenes/": "yellow"
 }
 
 [input]
