@@ -2,7 +2,7 @@ class_name BallStateBase
 extends Node
 
 @warning_ignore("unused_signal")
-signal state_changed(new_state: BallStateBase)
+signal state_changed(new_state: Ball.State)
 
 var ball: Ball = null
 var player_detecation_area: Area2D = null
