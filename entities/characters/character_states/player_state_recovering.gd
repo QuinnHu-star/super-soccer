@@ -1,5 +1,5 @@
 class_name PlayerStateRecovering
-extends PlayerState
+extends PlayerStateBase
 
 
 const RECOVER_DURATION := 300

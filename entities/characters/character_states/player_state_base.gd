@@ -1,4 +1,4 @@
-class_name PlayerState
+class_name PlayerStateBase
 extends Node
 
 # 抑制未使用信号警告

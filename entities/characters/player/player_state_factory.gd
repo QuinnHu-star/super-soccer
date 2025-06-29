@@ -12,6 +12,6 @@ func _init() -> void:
 }
 
 
-func get_fresh_state(state: Player.State) -> PlayerState:
+func get_new_state(state: Player.State) -> PlayerStateBase:
   assert(states.has(state), "State not found")
   return states.get(state).new()

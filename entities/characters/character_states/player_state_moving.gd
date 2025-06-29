@@ -1,5 +1,5 @@
 class_name PlayerStateMoving
-extends PlayerState
+extends PlayerStateBase
 
 
 func _process(_delta: float) -> void:

@@ -1,5 +1,5 @@
 class_name PlayerStateTackling
-extends PlayerState
+extends PlayerStateBase
 
 
 const TACKLE_RECOVER_DURATION := 200

@@ -10,7 +10,7 @@ enum State {MOVING, TACKLING, RECOVERING}
 ## 角色的朝向
 var heading := Vector2.RIGHT
 ## 角色当前状态
-var current_state: PlayerState = null
+var current_state: PlayerStateBase = null
 ## 玩家状态工厂
 var state_factory := PlayerStateFactory.new()
 
@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 func switch_state(state: State) -> void:
 	if current_state != null:
 		current_state.queue_free()
-	current_state = state_factory.get_fresh_state(state)
+	current_state = state_factory.get_new_state(state)
 	current_state.setup(self, animation_player)
 	current_state.state_changed.connect(switch_state.bind())
 	current_state.name = "PlayerStateMachine_" + str(state)
