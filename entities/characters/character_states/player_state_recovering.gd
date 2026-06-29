@@ -10,7 +10,7 @@ var recovery_start_time := Time.get_ticks_msec()
 func _enter_tree() -> void:
 	recovery_start_time = Time.get_ticks_msec()
 	player.velocity = Vector2.ZERO
-	animation_player.play(Strname.RECOVER)
+	animation_player.play(StringMap.RECOVER)
 
 
 func _process(delta: float) -> void:

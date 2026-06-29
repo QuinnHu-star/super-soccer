@@ -11,7 +11,7 @@ var is_tackling := true
 
 
 func _enter_tree() -> void:
-	animation_player.play(Strname.TACKLE)
+	animation_player.play(StringMap.TACKLE)
 
 
 func _process(delta: float) -> void:

@@ -37,16 +37,16 @@ func switch_state(state: State) -> void:
 	call_deferred("add_child", current_state)
 
 
-## 设置动动画
-func set_movement_abnimation() -> void:
+## 更新动画
+func update_movement_abnimation() -> void:
 	if velocity.length() > 0:
-		animation_player.play(Strname.RUN)
+		animation_player.play(StringMap.RUN)
 	else:
-		animation_player.play(Strname.IDLE)
+		animation_player.play(StringMap.IDLE)
 
 
-## 设置角色朝向变量：heading
-func set_heading() -> void:
+## 更新角色朝向变量：heading
+func update_heading() -> void:
 	if velocity.x > 0:
 		heading = Vector2.RIGHT
 	elif velocity.x < 0:

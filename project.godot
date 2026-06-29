@@ -11,15 +11,14 @@ config_version=5
 [application]
 
 config/name="super-soccer"
-config/tags=PackedStringArray("2d", "教程")
+config/tags=PackedStringArray()
 run/main_scene="uid://bcxo2e4tnabc1"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://ccs41ptey85jy"
 
 [autoload]
 
-KeyUtils="*res://game/autoload/key_utils.gd"
-Strname="*res://game/autoload/strname.gd"
+StringMap="*res://game/autoload/string_map.gd"
 
 [debug]
 
@@ -34,6 +33,10 @@ window/size/window_height_override=900
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[dotnet]
+
+project/assembly_name="super-soccer"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
@@ -44,7 +47,7 @@ folder_colors={
 "res://addons/": "gray",
 "res://entities/": "red",
 "res://game/": "orange",
-"res://stage/": "yellow"
+"res://stage/": "green"
 }
 
 [input]
